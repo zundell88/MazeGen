@@ -12,6 +12,7 @@ namespace MazeGeneratorAndSolver
     {
         Random r = new Random();
         private Maze _maze;
+        private Stack<Cell> cellStack = new Stack<Cell>(); 
         public SearchAlgorithm(Maze maze)
         {
             _maze = maze;
@@ -20,31 +21,26 @@ namespace MazeGeneratorAndSolver
         #region Build Maze with Depth-First Search
         public void DepthFirstSearch()
         {
+            Cell startCell = _maze.MazeArray[0,r.Next(_maze.Height)];
+            _maze.Begin = startCell;
+            startCell.IsVisited = true;
+            cellStack.Push(startCell);
 
-            // implement Depth-First search here
-
-            //Remove this code
-
-            Cell currentCell = _maze.MazeArray[0, 0];
-            for (int x = 1; x < _maze.Width; x++)
+            while (cellStack.Count > 0)
             {
-                Cell nextCell = _maze.MazeArray[x, 0];
-                RemoveWall(currentCell,nextCell);
-                currentCell = nextCell;
-                Thread.Sleep(50);
+                Cell currentCell = cellStack.Pop();
+                var unvisitedNeighbours = GetCurrentCellNeighbours(currentCell);
+               
+                if (unvisitedNeighbours.Count > 0)
+                {
+                    var tempPos = unvisitedNeighbours[r.Next(unvisitedNeighbours.Count)];
+                    Cell nextCell = _maze.MazeArray[tempPos.X, tempPos.Y];
+                    RemoveWall(currentCell,nextCell);
+                    cellStack.Push(currentCell);
+                    cellStack.Push(nextCell);
+                }
             }
-
-            //initialize entrence (to be removed)
-            _maze.Begin = _maze.MazeArray[0, 0];
-            _maze.Begin.CellWalls[0] = false;
-
-            //initialize exit (to be removed)
-            _maze.End = _maze.MazeArray[_maze.Width - 1, 0];
-            _maze.End.CellWalls[2] = false;
-
-            //Add this line in the end of your code:
-            //MakeMazeBeginEnd();
-
+            MakeMazeBeginEnd();
         }
 
         private void MakeMazeBeginEnd()
@@ -95,14 +91,14 @@ namespace MazeGeneratorAndSolver
             List<Point> neighbours = new List<Point>();
 
             Point tempPos = current.Position;
-            // Check right neigbour cell 
+            // Check left neigbour cell 
             tempPos.X = current.Position.X - 1;
             if (tempPos.X >= 0 && AllWallsIntact(_maze.MazeArray[tempPos.X, tempPos.Y]))
             {
                 neighbours.Add(tempPos);
             }
 
-            // Check left neigbour cell 
+            // Check right neigbour cell 
             tempPos.X = current.Position.X + 1;
             if (tempPos.X < _maze.Width && AllWallsIntact(_maze.MazeArray[tempPos.X, tempPos.Y]))
             {

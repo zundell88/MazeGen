@@ -37,11 +37,6 @@ namespace MazeGeneratorAndSolver
          * then int[,] array will helpful.
          */
         public Point Location { get; set; }
-        /*
-         * you may use Point datatype instead of int[,] array if you like to draw proper UI using Pen
-         * but if you want to create UI like displayed in problem document 
-         * then int[,] array will helpful.
-         */
         public Point Position { get; set; }
         public bool IsVisited { get; set; }
         public Cell PreviousCell { get; set; }
