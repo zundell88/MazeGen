@@ -164,7 +164,7 @@ namespace MazeGeneratorAndSolver
                 if (currentCell.Position == _maze.End.Position)
                 {
                     ShowFoundPath(currentCell);
-                    _maze.Finnished = true;
+                    _maze.Finished = true;
                     break;
                 }
                     

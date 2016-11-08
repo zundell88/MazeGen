@@ -21,9 +21,3 @@ C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build s
 C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build site\MazeGeneratorAndSolver\obj\Debug\MazeGeneratorAndSolver.csprojResolveAssemblyReference.cache
 C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build site\MazeGeneratorAndSolver\obj\Debug\MazeGeneratorAndSolver.dll
 C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build site\MazeGeneratorAndSolver\obj\Debug\MazeGeneratorAndSolver.pdb
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneratorAndSolver\bin\Debug\MazeGeneratorAndSolver.dll.config
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneratorAndSolver\bin\Debug\MazeGeneratorAndSolver.dll
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneratorAndSolver\bin\Debug\MazeGeneratorAndSolver.pdb
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneratorAndSolver\obj\Debug\MazeGeneratorAndSolver.csprojResolveAssemblyReference.cache
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneratorAndSolver\obj\Debug\MazeGeneratorAndSolver.dll
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneratorAndSolver\obj\Debug\MazeGeneratorAndSolver.pdb

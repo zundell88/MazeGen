@@ -31,14 +31,3 @@ C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build s
 C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build site\MazeGeneration\obj\Debug\MazeGeneration.Form1.resources
 C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build site\MazeGeneration\obj\Debug\MazeGeneration.Properties.Resources.resources
 C:\Users\Tobias Bladini\SkyDrive\Algoritmer\Temp\MazeGeneratorAndSolver- Build site\MazeGeneration\obj\Debug\MazeGeneration.csproj.GenerateResource.Cache
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\bin\Debug\MazeGeneration.exe.config
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\obj\Debug\MazeGeneration.exe
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\obj\Debug\MazeGeneration.pdb
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\bin\Debug\MazeGeneration.exe
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\bin\Debug\MazeGeneration.pdb
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\bin\Debug\MazeGeneratorAndSolver.dll
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\bin\Debug\MazeGeneratorAndSolver.pdb
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\obj\Debug\MazeGeneration.csprojResolveAssemblyReference.cache
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\obj\Debug\MazeGeneration.Form1.resources
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\obj\Debug\MazeGeneration.Properties.Resources.resources
-D:\Skolgrejer\Algoritmer & Datastrukturer\8. DjupBredd-först-sökning\MazeGeneration\obj\Debug\MazeGeneration.csproj.GenerateResource.Cache
