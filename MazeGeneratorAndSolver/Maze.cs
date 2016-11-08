@@ -57,6 +57,7 @@ namespace MazeGeneratorAndSolver
         public int Y => _cellSize;
         public bool Working { get; set; }
         public bool Solving { get; set; }
+        public bool Finnished = false;
         public Point CurrentGenerateCell { get; set; }
         public Point CurrentSolvePosition { get; set; }
         public Pen LocationPen = new Pen(Brushes.IndianRed, 5);
@@ -149,6 +150,8 @@ namespace MazeGeneratorAndSolver
                 g.DrawLine(this.LocationPen,
                     new Point(this.FoundPath[i].Location.X + X / 2, this.FoundPath[i].Location.Y + Y / 2),
                     new Point(this.FoundPath[i - 1].Location.X + X / 2, this.FoundPath[i - 1].Location.Y + Y / 2));
+                if (Finnished)
+                    g.FillRectangle(Brushes.Red, new Rectangle(this.End.Location, new Size(this.X, this.Y)));
             }
         }
     }

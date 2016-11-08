@@ -13,6 +13,7 @@ namespace MazeGeneratorAndSolver
         Random r = new Random();
         private Maze _maze;
         private Stack<Cell> cellStack = new Stack<Cell>(); 
+        private Queue<Cell> cellQueue = new Queue<Cell>(); 
         public SearchAlgorithm(Maze maze)
         {
             _maze = maze;
@@ -21,16 +22,15 @@ namespace MazeGeneratorAndSolver
         #region Build Maze with Depth-First Search
         public void DepthFirstSearch()
         {
+            
             Cell startCell = _maze.MazeArray[0,r.Next(_maze.Height)];
             _maze.Begin = startCell;
-            startCell.IsVisited = true;
             cellStack.Push(startCell);
 
             while (cellStack.Count > 0)
             {
                 Cell currentCell = cellStack.Pop();
                 var unvisitedNeighbours = GetCurrentCellNeighbours(currentCell);
-               
                 if (unvisitedNeighbours.Count > 0)
                 {
                     var tempPos = unvisitedNeighbours[r.Next(unvisitedNeighbours.Count)];
@@ -155,34 +155,70 @@ namespace MazeGeneratorAndSolver
             // Implement Breadth First Search here
 
             Cell current = _maze.Begin;
-            
-            // Display where we are
-            _maze.CurrentSolvePosition = current.Position;
-
-            //mark as visited to avoid infinite loops and mark it green
-            current.IsVisited = true;
-            while (current.Position != _maze.End.Position)
+            cellQueue.Enqueue(current);
+            while (cellQueue.Count > 0)
             {
-                //move one step to the right
-                if (current.Position.X + 1 < _maze.Width && !current.CellWalls[2])
-                {
-                    Cell next = _maze.MazeArray[current.Position.X + 1, current.Position.Y];
-                    next.PreviousCell = current;
-                    current = next;
-                }
-                // Display where we are
+                Cell currentCell = cellQueue.Dequeue();
                 _maze.CurrentSolvePosition = current.Position;
+                currentCell.IsVisited = true;
+                if (currentCell.Position == _maze.End.Position)
+                {
+                    ShowFoundPath(currentCell);
+                    _maze.Finnished = true;
+                    break;
+                }
+                    
+                var listOfUnvisitedCells = CheckCellWalls(currentCell);
+                if (listOfUnvisitedCells.Count > 0)
+                    foreach (var cell in listOfUnvisitedCells){
+                        
+                        cell.PreviousCell = currentCell;
+                        cellQueue.Enqueue(cell);
+                        cell.IsVisited = true;
+                        Thread.Sleep(50);
+                        _maze.CurrentSolvePosition = cell.Position;
+                    }
+                
+            }
+            return true;
+        }
 
-                //mark as visited to avoid infinite loops and mark it green
-                current.IsVisited = true;
+        private List<Cell> CheckCellWalls(Cell currentCell)
+        {
+            List<Cell> listOfCells = new List<Cell>();
 
-                Thread.Sleep(50);
+            Point tempPoint = currentCell.Position;
+            
+            //Check down
+            if (currentCell.CellWalls[3] == false && tempPoint.Y+1 <= _maze.Height)
+            {
+                Cell nextCell = _maze.MazeArray[currentCell.Position.X, currentCell.Position.Y + 1];
+                if(nextCell.IsVisited == false )
+                    listOfCells.Add(nextCell);
+            }
+            //Check right
+            if (currentCell.CellWalls[2] == false && tempPoint.X+1 <= _maze.Width)
+            {
+                Cell nextCell = _maze.MazeArray[currentCell.Position.X + 1, currentCell.Position.Y];
+                if (nextCell.IsVisited == false )
+                    listOfCells.Add(nextCell);
+            }
+            //Check up
+            if (currentCell.CellWalls[1] == false && tempPoint.Y-1 >= 0)
+            {
+                Cell nextCell = _maze.MazeArray[currentCell.Position.X, currentCell.Position.Y - 1];
+                if (nextCell.IsVisited == false )
+                    listOfCells.Add(nextCell);
+            }
+            //Check left
+            if (currentCell.CellWalls[0] == false && tempPoint.X-1 >= 0)
+            {
+                Cell nextCell = _maze.MazeArray[currentCell.Position.X - 1, currentCell.Position.Y];
+                if (nextCell.IsVisited == false )
+                    listOfCells.Add(nextCell);
             }
 
-            Thread.Sleep(400);
-            ShowFoundPath(current);
-            return true;
-
+            return listOfCells;
         }
 
         private void ShowFoundPath(Cell cell)
